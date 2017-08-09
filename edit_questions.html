@@ -3,53 +3,66 @@
   <head>
     <meta charset="UTF-8">
     <title>Quiz!</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1>Edit Quiz!</h1>
-    <div id="new_quiz">
-        <div class="form-group">
-            <label>Question</label>
-            <input type="text" id="question" placeholder="New question">
-        </div>
-            
-        <div class="form-group">
-            <label>Answer 1</label>
-            <input type="text" id="answer1" placeholder="Answer 1">
-        </div>
-        
-        <div class="form-group">
-            <label>Answer 2</label>
-            
-            <input type="text" id="answer2" placeholder="Answer 2">
-        </div>
+    <div class="container-fluid">
+        <div class="col-xs-12">
+            <h1>Edit Quiz!</h1>
+            <div class="col-xs-3" id="new_quiz">
+                <div class="form-group">
+                    <label>Question</label>
+                    <input class="form-control" type="text" id="question" placeholder="New question">
+                </div>
+                    
+                <div class="form-group">
+                    <label>Answer 1</label>
+                    <input class="form-control" type="text" id="answer1" placeholder="Answer 1">
+                </div>
+                
+                <div class="form-group">
+                    <label>Answer 2</label>
+                    
+                    <input class="form-control" type="text" id="answer2" placeholder="Answer 2">
+                </div>
 
-        <div class="form-group">
-            <label>Answer 3</label>
+                <div class="form-group">
+                    <label>Answer 3</label>
 
-            <input type="text" id="answer3" placeholder="Answer 3">
-        </div>
-        <div>
-            <label>Correct answer</label>
-        </div>    
-            <input type="radio" id="correct1" name="correct" checked>Answer 1 
-        <div>
-        </div>
-            <input type="radio" id="correct2" name="correct">Answer 2
-        <div>
-            <input type="radio" id="correct3" name="correct">Answer 3
-        </div>
+                    <input class="form-control" type="text" id="answer3" placeholder="Answer 3">
+                </div>
+                <div class="form-group">
+                    <label>Correct answer</label>
+                    <div class="radio">    
+                        <label><input type="radio" id="correct1" name="correct" checked>Answer 1</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" id="correct2" name="correct">Answer 2</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" id="correct3" name="correct">Answer 3</label>
+                    </div>
+                </div>
 
-        <a href="#" id="add_new_question">Add</a>
-    </div>
-    <div id="quiz_anchor">
+                <a href="#" id="add_new_question">Add</a>
+            </div>
+            <div class="col-xs-9" id="quiz_anchor">
+            </div>
+        </div>
     </div>
   </body>
 
-  <script src="pouchdb-6.3.4.min.js"></script>
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 
-  <script>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="pouchdb-6.3.4.min.js"></script>
+  
+  <script>if (window.module) module = window.module;</script>
+
+<script>
     // You can also require other files to run in this process
     require('./edit_questions.js')
-  </script>
+</script>
+
 </html>
