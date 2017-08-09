@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Quiz!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>Edit Quiz!</h1>
+    <div id="new_quiz">
+        <div class="form-group">
+            <label>Question</label>
+            <input type="text" id="question" placeholder="New question">
+        </div>
+            
+        <div class="form-group">
+            <label>Answer 1</label>
+            <input type="text" id="answer1" placeholder="Answer 1">
+        </div>
+        
+        <div class="form-group">
+            <label>Answer 2</label>
+            
+            <input type="text" id="answer2" placeholder="Answer 2">
+        </div>
+
+        <div class="form-group">
+            <label>Answer 3</label>
+
+            <input type="text" id="answer3" placeholder="Answer 3">
+        </div>
+        <div>
+            <label>Correct answer</label>
+        </div>    
+            <input type="radio" id="correct1" name="correct" checked>Answer 1 
+        <div>
+        </div>
+            <input type="radio" id="correct2" name="correct">Answer 2
+        <div>
+            <input type="radio" id="correct3" name="correct">Answer 3
+        </div>
+
+        <a href="#" id="add_new_question">Add</a>
+    </div>
+    <div id="quiz_anchor">
+    </div>
+  </body>
+
+  <script src="pouchdb-6.3.4.min.js"></script>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./edit_questions.js')
+  </script>
+</html>
