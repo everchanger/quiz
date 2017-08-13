@@ -1,0 +1,26 @@
+.question-wrapper {
+    padding: 5px;
+    border: 1px solid grey;
+    margin-bottom: 15px;
+}
+
+.question-wrapper div {
+    padding: 0;
+}
+
+.question {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.inline {
+    display: inline;
+}
+
+.correct {
+    margin-top: 5px;
+}

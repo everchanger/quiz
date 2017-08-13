@@ -9,7 +9,7 @@ $( document ).ready(function() {
     db.getAllQuestions().then(function(response) {
          for(var i=0;i<response.rows.length; ++i) {
             console.log(response.rows[i]);
-            addQuestiontoDOM(response.rows[i].doc);
+            addQuestiontoDOM(response.rows[i].doc, i);
         }
     });
 
@@ -17,13 +17,19 @@ $( document ).ready(function() {
     console.log( "ready!" );
 });
 
-function addQuestiontoDOM(doc) {
-    var question_div = '<div class="question">';
-    question_div += '<p>Question: '+doc.question+'</p>';
+function addQuestiontoDOM(doc, questionNumber) {
+    var question_div = '<div class="col-xs-12 question-wrapper" id="question_number_'+questionNumber+'">';
+    question_div += '<div class="col-xs-12">';
+    question_div += '<p class="question pull-left">Question #'+(questionNumber+1)+'</p>';
+    question_div += '<a href="#" class="btn btn-primary editBtn pull-right">Edit</a>';
+    question_div += '</div>'
+    question_div += '<div class="col-xs-12 question">';
+    question_div += 'Question: '+doc.question;
+    question_div += '</div>'
     for(var i=0;i<doc.answers.length;++i) {
-        question_div += '<p>Answer '+ (i+1) + ':' + doc.answers[i]+'</p>';
+        question_div += '<div class="col-xs-12"><span class="bold">Answer '+ (i+1) + ':</span>' + doc.answers[i]+'</div>';
     }
-    question_div += '<p>Correct: '+(doc.answers[doc.correct])+'</p>';
+    question_div += '<div class="col-xs-12 correct"><span class="bold">Correct: </span>'+(doc.answers[doc.correct])+'</div>';
     question_div += '</div>';
 
     $('#quiz_anchor').append(question_div)
@@ -52,6 +58,8 @@ function addQuestion() {
     }
 
     db.addQuestion(question.val(), answer1.val(), answer2.val(), answer3.val(), correct);
+
+    location.reload();
 
     return false;
 }
