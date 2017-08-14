@@ -8,14 +8,15 @@ function getAllQuestions() {
     });
 }
 
-function addQuestion(question, answer1, answer2, answer3, correctAnswer) {
+function addQuestion(question, answer1, answer2, answer3, answer4, correctAnswer) {
     var newEntry = {
         "_id": question,
         "question": question,
         "answers": [
             answer1,
             answer2,
-            answer3
+            answer3,
+            answer4
         ],
         "correct": correctAnswer
     }
@@ -23,5 +24,12 @@ function addQuestion(question, answer1, answer2, answer3, correctAnswer) {
     g_db.put(newEntry);
 }
 
+function deleteQuestion(id) {
+    g_db.get(id).then(function (doc) {
+        return g_db.remove(doc._id, doc._rev);
+    });
+}
+
 module.exports.getAllQuestions = getAllQuestions;
 module.exports.addQuestion = addQuestion;
+module.exports.deleteQuestion = deleteQuestion;

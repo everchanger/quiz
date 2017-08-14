@@ -1,7 +1,13 @@
+.container-fluid {
+    padding: 0 !important;
+}
+
 .question-wrapper {
-    padding: 5px;
-    border: 1px solid grey;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
     margin-bottom: 15px;
+    box-shadow: 5px 5px 5px #e2e2e2;
 }
 
 .question-wrapper div {
@@ -23,4 +29,16 @@
 
 .correct {
     margin-top: 5px;
+}
+
+.header
+{
+    height: 188px;
+    background: #CD724B; 
+    margin-bottom: 64px;
+}
+
+.btn
+{
+    box-shadow: 3px 3px 3px #9a9a9a;
 }

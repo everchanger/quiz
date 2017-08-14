@@ -3,24 +3,45 @@
   <head>
     <meta charset="UTF-8">
     <title>Quiz!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
   <body>
-    <h1>Question 1?</h1>
-    <ul>
-        <li>
-            <p>Answer 1</p>
-            <a href="#" id="answer_1">X</a>
-        </li>
-        <li>
-            <p>Answer 2</p>
-            <a href="#" id="answer_2">X</a>
-        </li>
-        <li>
-            <p>Answer 3</p>
-            <a href="#" id="answer_3">X</a>
-        </li>
-    </ul>
+    <div class="container-fluid">
+        <div class="col-xs-12 header text-center">
+            <img src="logo.jpg"></img>
+        </div>
+          <div class="col-xs-12">
+            <a href="edit_questions.html">Edit QUIZ</a>
+        </div>
+        <h1 id="question_anchor">Question 1?</h1>
+        <ul>
+            <li>
+                <p id="answer1_anchor">Answer 1</p>
+                <a href="#" id="answer_1">X</a>
+            </li>
+            <li>
+                <p id="answer2_anchor">Answer 2</p>
+                <a href="#" id="answer_2">X</a>
+            </li>
+            <li>
+                <p id="answer3_anchor">Answer 3</p>
+                <a href="#" id="answer_3">X</a>
+            </li>
+            <li>
+                <p id="answer4_anchor">Answer 4</p>
+                <a href="#" id="answer_4">X</a>
+            </li>
+        </ul>
+    </div>
   </body>
+
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="pouchdb-6.3.4.min.js"></script>
+  
+  <script>if (window.module) module = window.module;</script>
 
   <script>
     // You can also require other files to run in this process
