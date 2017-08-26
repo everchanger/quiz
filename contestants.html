@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Quiz!</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="col-xs-12">
+            <a href="index.html">Back</a>
+        </div>
+        <div class="col-xs-12">
+            <h1>Show contestants</h1>
+            <div class="col-xs-12" id="contestant_anchor">
+            </div>
+        </div>
+    </div>
+  </body>
+
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="pouchdb-6.3.4.min.js"></script>
+  
+  <script>if (window.module) module = window.module;</script>
+
+<script>
+    // You can also require other files to run in this process
+    require('./contestants.js')
+</script>
+
+</html>

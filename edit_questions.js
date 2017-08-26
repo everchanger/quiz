@@ -7,9 +7,8 @@ var db = require('./db.js');
 $( document ).ready(function() {
 
     db.getAllQuestions().then(function(response) {
-         for(var i=0;i<response.rows.length; ++i) {
-            console.log(response.rows[i]);
-            addQuestiontoDOM(response.rows[i].doc, i);
+         for(var i=0;i<response.length; ++i) {
+            addQuestiontoDOM(response[i], i);
         }
     });
 
@@ -61,13 +60,13 @@ function addQuestion() {
     }
 
     var correct = 0;
-    if(correct1.attr('checked', 'checked')) {
+    if(correct1.prop('checked')) {
         correct = 0;
-    } else if(correct2.attr('checked', 'checked')) {
+    } else if(correct2.prop('checked')) {
         correct = 1;
-    } else if(correct3.attr('checked', 'checked')) {
+    } else if(correct3.prop('checked')) {
         correct = 2;
-    } else if(correct4.attr('checked', 'checked')) {
+    } else if(correct4.prop('checked')) {
         correct = 3;
     }
 

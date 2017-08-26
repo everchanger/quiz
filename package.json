@@ -1,20 +1,16 @@
 {
-  "name": "electron-quick-start",
+  "name": "Quiz",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A small quiz app",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/everchanger/quiz",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "QUIZ"
   ],
-  "author": "GitHub",
+  "author": "Joakim Rosenstam",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "~1.6.2"
