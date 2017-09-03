@@ -1,5 +1,5 @@
 var g_db = new PouchDB('quiz_db');
-
+var fs = require('fs');
 // g_db.destroy();
 
 function getAllQuestions() {
@@ -58,6 +58,32 @@ function addContestant(name, phone, email, score) {
     }
 
     g_db.put(newEntry);
+
+    // Also write this contestant to the external file!
+    var path = '..//contestants.csv';
+    if (!fs.existsSync(path)) {
+        fs.writeFile(path, 'Name;Phone;Email;Score', function(err) {
+            if(err) {
+                return console.log(err);
+            }
+        
+            console.log("The file was created!");
+
+            addContestantFile(path, name, phone, email, score);
+        });
+    } else {
+        addContestantFile(path, name, phone, email, score);
+    }
+}
+
+function addContestantFile(path, name, phone, email, score) {
+    fs.appendFile(path, "\r\n" + name + ";"+phone + ";"+email + ";"+score, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    
+        console.log("The file was updated!");
+    }); 
 }
 
 function addQuestion(question, answer1, answer2, answer3, answer4, correctAnswer) {
@@ -74,7 +100,22 @@ function addQuestion(question, answer1, answer2, answer3, answer4, correctAnswer
     }
 
     g_db.put(newEntry);
+
+    // Also write this question to the external file as json!
+    /*var json = JSON.stringify(newEntry);
+    var path = './questions.json';
+    addQuestionFile(path, json);   */
 }
+
+/*function addQuestionFile(path, entry) {
+    fs.appendFile(path, "\r\n" + entry, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    
+        console.log("The file was updated!");
+    }); 
+}*/
 
 function deleteQuestion(id) {
     g_db.get(id).then(function (doc) {
